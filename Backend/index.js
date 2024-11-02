@@ -2,9 +2,10 @@ const express = require("express")
 const jwt = require("jsonwebtoken");
 const createUser = require("./Queries/createUser");
 const authenticateUser = require("./Queries/AuthenticateUser");
+const cors = require("cors")
 require('dotenv').config();
 require('./databaseConnection')
-
+app.use(cors())
 const app = express()
 app.use(express.json())
 
