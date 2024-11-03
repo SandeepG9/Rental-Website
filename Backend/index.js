@@ -5,8 +5,10 @@ const authenticateUser = require("./Queries/AuthenticateUser");
 const cors = require("cors")
 require('dotenv').config();
 require('./databaseConnection')
-app.use(cors())
+
+
 const app = express()
+app.use(cors())
 app.use(express.json())
 
 app.post("/signup",(req,res)=>{
@@ -15,7 +17,6 @@ app.post("/signup",(req,res)=>{
 
 app.post("/signin",(req,res)=>{
     authenticateUser(req.body,res)
-    
 })
 
 app.listen(process.env.portNumber,()=>{
